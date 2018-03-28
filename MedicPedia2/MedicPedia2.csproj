@@ -173,6 +173,9 @@
     <Compile Include="Repositories\AuthorRepository\IAuthorRepository.cs" />
     <Compile Include="Repositories\AuthorRepository\LocalAuthorRepository.cs" />
     <Compile Include="Repositories\AuthorRepository\SqlAuthorRepository.cs" />
+    <Compile Include="Repositories\CategoryRepository\ICategoryRepository.cs" />
+    <Compile Include="Repositories\CategoryRepository\LocalCategoryRepository.cs" />
+    <Compile Include="Repositories\CategoryRepository\SqlCategoryRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

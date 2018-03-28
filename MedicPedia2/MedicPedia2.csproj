@@ -170,6 +170,9 @@
     <Compile Include="Repositories\ArticleRepository\IArticleRepository.cs" />
     <Compile Include="Repositories\ArticleRepository\LocalArticleRepository.cs" />
     <Compile Include="Repositories\ArticleRepository\SqlArticleRepository.cs" />
+    <Compile Include="Repositories\AuthorRepository\IAuthorRepository.cs" />
+    <Compile Include="Repositories\AuthorRepository\LocalAuthorRepository.cs" />
+    <Compile Include="Repositories\AuthorRepository\SqlAuthorRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />

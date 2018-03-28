@@ -1,0 +1,26 @@
+﻿@model MedicPedia2.Models.Article
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    <fieldset>
+        <legend>Begin create</legend>
+        <div>@Html.LabelFor(model => model.Title)</div>
+        <div>@Html.TextBoxFor(model => model.Title)</div>
+        <br>
+        <div>@Html.LabelFor(model => model.Content)</div>
+        <div>@Html.TextAreaFor(model => model.Content, 10, 500, new { HtmlAttributes = new { @id = "textareaarticle" } })</div>
+        <br>
+        @*<div>@Html.LabelFor(model => model.Tags)</div>
+            <div>@Html.TextBoxFor(model => model.Tags)</div>*@
+        <br>
+        <div>@Html.LabelFor(model => model.Author)</div>
+        <div>@Html.TextBoxFor(model => model.Author)</div>
+        <br>
+        <div>
+            <input type="submit" value="Create">
+        </div>
+        <br>
+    </fieldset>
+}

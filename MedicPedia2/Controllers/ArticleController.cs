@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using MedicPedia2.Models;
+﻿using MedicPedia2.Models;
+using MedicPedia2.Models.ViewModels;
 using MedicPedia2.Repositories.ArticleRepository;
+using MedicPedia2.Repositories.AuthorRepository;
 using MedicPedia2.Repositories.CategoryRepository;
+using System;
+using System.Web.Mvc;
 
 namespace MedicPedia2.Controllers
 {
     public class ArticleController : Controller
     {
-
-        Article SingleArticle;
         SqlArticleRepository articleRepository = new SqlArticleRepository();
+        SqlAuthorRepository authorRepository = new SqlAuthorRepository();
         SqlCategoryRepository categoryRepository = new SqlCategoryRepository();
 
         // GET: Article
@@ -25,15 +23,13 @@ namespace MedicPedia2.Controllers
 
         public ActionResult Article(Guid id)
         {
-            var articleList = articleRepository.GetArticleList();
-
-            for (int i = 0; i < articleList.Count; i++)
+            var articleVm = new ArticleViewModel()
             {
-                if (articleList[i].Id == id)
-                { this.SingleArticle = articleList[i]; }
-            }
+                Article = articleRepository.Get(id),
+                AllPossibleCategories = categoryRepository.GetAllCategories()
+            };
 
-            return View(SingleArticle);
+            return View(articleVm);
         }
 
         [HttpGet]

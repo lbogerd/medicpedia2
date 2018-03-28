@@ -110,3 +110,4 @@ namespace MedicPedia2.Repositories.ArticleRepository
 
         }
     }
+}

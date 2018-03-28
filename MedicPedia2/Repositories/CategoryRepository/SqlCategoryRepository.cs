@@ -34,7 +34,7 @@ namespace MedicPedia2.Repositories.CategoryRepository
             //return result;
         }
 
-        public List<Category> GetMainCategories() => dbContext.Categories.Where(p => p.ParentCategoryId == null).ToList();
+        public List<Category> GetMainCategories() => dbContext.Categories.Where(p => p.ParentCategory == null).ToList();
 
         public void Remove(Guid id)
         {

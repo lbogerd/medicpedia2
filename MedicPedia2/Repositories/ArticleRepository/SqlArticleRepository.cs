@@ -14,6 +14,12 @@ namespace MedicPedia2.Repositories.ArticleRepository
 
         public void Add(Article article)
         {
+            if (article.PublishedOn == null
+                || article.PublishedOn == DateTime.MinValue)
+            {
+                article.PublishedOn = DateTime.Now;
+            }
+
             dbContext.Articles.Add(article);
             dbContext.SaveChanges();
         }

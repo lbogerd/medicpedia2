@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using MedicPedia2.Models;
+using MedicPedia2.Repositories.ArticleRepository;
 
 namespace MedicPedia2.Controllers
 {

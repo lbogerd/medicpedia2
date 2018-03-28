@@ -23,20 +23,17 @@ namespace MedicPedia2.Controllers
 
         public ActionResult Article(Guid id)
         {
-            var articleVm = new ArticleViewModel()
-            {
-                Article = articleRepository.Get(id),
-                AllPossibleCategories = categoryRepository.GetAllCategories()
-            };
-
+            var articleVm = new ArticleViewModel();
+            articleVm.CreateSelectedList(authorRepository);
             return View(articleVm);
         }
 
         [HttpGet]
         public ActionResult Create()
         {
-            Article article = new Article();
-            return View(article);
+            var articleVm = new ArticleViewModel();
+            articleVm.CreateSelectedList(authorRepository);
+            return View(articleVm);
         }
 
         [HttpPost]

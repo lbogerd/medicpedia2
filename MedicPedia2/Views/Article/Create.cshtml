@@ -1,4 +1,5 @@
-﻿@model MedicPedia2.Models.Article
+﻿@model MedicPedia2.Models.ViewModels.ArticleViewModel
+
 
 <h2>Create</h2>
 
@@ -6,17 +7,17 @@
 {
     <fieldset>
         <legend>Begin create</legend>
-        <div>@Html.LabelFor(model => model.Title)</div>
-        <div>@Html.TextBoxFor(model => model.Title)</div>
+        <div>@Html.LabelFor(model => model.Article.Title)</div>
+        <div>@Html.TextBoxFor(model => model.Article.Title)</div>
         <br>
-        <div>@Html.LabelFor(model => model.Content)</div>
-        <div>@Html.TextAreaFor(model => model.Content, 10, 500, new { HtmlAttributes = new { @id = "textareaarticle" } })</div>
+        <div>@Html.LabelFor(model => model.Article.Content)</div>
+        <div>@Html.TextAreaFor(model => model.Article.Content, 10, 500, new { HtmlAttributes = new { @id = "textareaarticle" } })</div>
         <br>
         @*<div>@Html.LabelFor(model => model.Tags)</div>
             <div>@Html.TextBoxFor(model => model.Tags)</div>*@
         <br>
-        <div>@Html.LabelFor(model => model.Author)</div>
-        <div>@Html.TextBoxFor(model => model.Author)</div>
+        <div>@Html.LabelFor(model => model.AllPossibleAuthors)</div>
+        <div>@Html.DropDownList("Dropdownlist", Model.AllPossibleAuthors, optionLabel: "Select a author")</div>
         <br>
         <div>
             <input type="submit" value="Create">

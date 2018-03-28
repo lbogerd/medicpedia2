@@ -4,6 +4,7 @@ using MedicPedia2.Repositories.ArticleRepository;
 using MedicPedia2.Repositories.AuthorRepository;
 using MedicPedia2.Repositories.CategoryRepository;
 using System;
+using System.Collections.Generic;
 using System.Web.Mvc;
 
 namespace MedicPedia2.Controllers
@@ -26,7 +27,8 @@ namespace MedicPedia2.Controllers
             var articleVm = new ArticleViewModel()
             {
                 Article = articleRepository.Get(id),
-                AllPossibleCategories = categoryRepository.GetAllCategories()
+                AllPossibleCategories = categoryRepository
+                    .GetAllCategoriesAsSelectListItems()
             };
 
             return View(articleVm);
@@ -35,14 +37,19 @@ namespace MedicPedia2.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            Article article = new Article();
-            return View(article);
+            var vm = new ArticleViewModel
+            {
+                Article = new Article(),
+                AllPossibleCategories = categoryRepository
+                    .GetAllCategoriesAsSelectListItems()
+            };
+            return View(vm);
         }
 
         [HttpPost]
-        public ActionResult Create(Article article)
+        public ActionResult Create(ArticleViewModel articleVm)
         {
-            articleRepository.Add(article);
+            articleRepository.Add(articleVm.Article);
             return RedirectToAction("Index");
         }
 

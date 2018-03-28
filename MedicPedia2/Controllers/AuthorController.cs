@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MedicPedia2.Models;
 using MedicPedia2.Repositories.ArticleRepository;
+using MedicPedia2.Repositories.AuthorRepository;
 
 namespace MedicPedia2.Controllers
 {

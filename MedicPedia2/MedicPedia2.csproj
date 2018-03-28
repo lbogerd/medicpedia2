@@ -159,6 +159,10 @@
     <Compile Include="Migrations\201803281052126_init.Designer.cs">
       <DependentUpon>201803281052126_init.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201803281320214_fixedDateTime.cs" />
+    <Compile Include="Migrations\201803281320214_fixedDateTime.Designer.cs">
+      <DependentUpon>201803281320214_fixedDateTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Author.cs" />
@@ -245,6 +249,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201803281052126_init.resx">
       <DependentUpon>201803281052126_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201803281320214_fixedDateTime.resx">
+      <DependentUpon>201803281320214_fixedDateTime.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

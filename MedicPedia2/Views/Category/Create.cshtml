@@ -1,0 +1,24 @@
+﻿@model MedicPedia2.Models.Category
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Description)
+        @Html.TextBoxFor(m => m.Description)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.SortOrder)
+        @Html.EnumDropDownListFor(m => m.SortOrder)
+    </div>
+    <div>
+        <input type="submit" value="Create" name="Create">
+    </div>
+}

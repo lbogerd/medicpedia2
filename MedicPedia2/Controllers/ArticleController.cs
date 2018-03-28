@@ -61,9 +61,9 @@ namespace MedicPedia2.Controllers
         }
 
         [HttpPost]
-        public ActionResult Update(Article article)
+        public ActionResult Update(ArticleViewModel article)
         {
-            articleRepository.Update(article);
+            articleRepository.Update(article.Article);
 
             return RedirectToAction("Article");
         }

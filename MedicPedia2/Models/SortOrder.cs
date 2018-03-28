@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace Medicpedia.Data.Classes
+namespace MedicPedia2.Models
 {
     public enum SortOrder
     {

@@ -1,0 +1,32 @@
+﻿@model  MedicPedia2.Models.Article
+
+<h2>Update</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.Id)
+    <div>
+        @Html.LabelFor(m => m.Title)
+        @Html.TextBoxFor(m => m.Title)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Content)
+        @Html.TextAreaFor(m => m.Content, 10, 500, new { HtmlAttributes = new { @id = "textareaarticle" } }))
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Tags)
+        @Html.TextBoxFor(m => m.Tags)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Author)
+        @Html.TextBoxFor(m => m.Author)
+    </div>
+
+    <div>
+        <input type="submit" value="Update" name="Update">
+    </div>
+
+}

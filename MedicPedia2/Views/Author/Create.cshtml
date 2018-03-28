@@ -1,0 +1,19 @@
+﻿@model MedicPedia2.Models.Author
+
+<h2>Create</h2>
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(m => m.FirstName)
+        @Html.TextBoxFor(m => m.FirstName)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.LastName)
+        @Html.TextBoxFor(m => m.LastName)
+    </div>
+
+    <div>
+        <input type="submit" value="Create" name="Create" />
+    </div>
+}

@@ -1,0 +1,18 @@
+﻿@model List<MedicPedia2.Models.Article>
+
+<h2>Article</h2>
+
+<div>
+    @Html.ActionLink("Create", "Create")
+</div>
+
+<h2>Article List</h2>
+
+<ul>
+    @foreach (var article in Model)
+    {
+        <li>
+            @Html.ActionLink(article.Title, "Article", "Article", new { id = article.Id }, null) @Html.ActionLink("✏️", "Update", new { articleId = article.Id })
+        </li>
+    }
+</ul>

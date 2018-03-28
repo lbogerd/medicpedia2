@@ -1,0 +1,8 @@
+﻿@model List<MedicPedia2.Models.Author>
+
+<ul>
+    @foreach (var author in Model)
+    {
+        <li>@Html.ActionLink($"{author.FirstName} {author.LastName}", "Update", new { id = author.Id })</li>
+    }
+</ul>

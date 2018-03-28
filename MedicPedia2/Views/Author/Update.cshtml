@@ -1,0 +1,23 @@
+﻿@model MedicPedia2.Models.Author
+
+<h2>Update</h2>
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.HiddenFor(m => m.Id)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.FirstName)
+        @Html.TextBoxFor(m => m.FirstName)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.LastName)
+        @Html.TextBoxFor(m => m.LastName)
+    </div>
+
+    <div>
+        <input type="submit" value="Update" name="Update" />
+    </div>
+}

@@ -1,0 +1,25 @@
+﻿@model MedicPedia2.Models.Category
+
+<h2>Update</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.Id)
+    <div>
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Description)
+        @Html.TextBoxFor(m => m.Description)
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.SortOrder)
+        @Html.EnumDropDownListFor(m => m.SortOrder)
+    </div>
+    <div>
+        <input type="submit" value="Update" name="Update">
+    </div>
+}

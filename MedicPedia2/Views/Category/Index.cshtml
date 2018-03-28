@@ -1,0 +1,12 @@
+﻿@model List<MedicPedia2.Models.Category>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<ul>
+    @foreach (var category in Model)
+    {
+    <li>@Html.ActionLink(category.Name, "Update", new { categoryIdToUpdate = category.Id }), @category.Description, @Html.ActionLink("[×]", "Delete", new { categoryIdToDelete = category.Id })</li>
+    }
+</ul>

@@ -13,8 +13,10 @@
         <div>@Html.LabelFor(model => model.Article.Content)</div>
         <div>@Html.TextAreaFor(model => model.Article.Content, 10, 500, new { HtmlAttributes = new { @id = "textareaarticle" } })</div>
         <br>
-        @*<div>@Html.LabelFor(model => model.Tags)</div>
-            <div>@Html.TextBoxFor(model => model.Tags)</div>*@
+        <div>
+            @Html.LabelFor(m => m.Article.Categories)
+            @Html.ListBoxFor(m => m.Article.Categories, Model.AllPossibleCategories)
+        </div>
         <br>
         <div>@Html.LabelFor(model => model.AllPossibleAuthors)</div>
         <div>@Html.DropDownList("Dropdownlist", Model.AllPossibleAuthors, optionLabel: "Select a author")</div>

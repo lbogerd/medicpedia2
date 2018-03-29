@@ -14,7 +14,7 @@ namespace MedicPedia2.Models.ViewModels
 
         
         public Article Article { get; set; }
-        public List<Category> AllPossibleCategories { get; set; }
+        public List<SelectListItem> AllPossibleCategories { get; set; }
         public List<SelectListItem> AllPossibleAuthors { get; set; }
 
         public ArticleViewModel()

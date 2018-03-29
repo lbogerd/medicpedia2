@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace MedicPedia2.Repositories.CategoryRepository
 {
@@ -22,7 +23,7 @@ namespace MedicPedia2.Repositories.CategoryRepository
 
         public List<Category> GetAllCategories(List<Category> categories = null)
         {
-            throw new NotImplementedException();
+            return dbContext.Categories.ToList();
             //var result = new List<Category>();
 
             //(categories ?? GetMainCategories()).ForEach(category =>
@@ -32,6 +33,16 @@ namespace MedicPedia2.Repositories.CategoryRepository
             //});
 
             //return result;
+        }
+
+        public List<SelectListItem> GetAllCategoriesAsSelectListItems()
+        {
+            var possibleCategories = new List<SelectListItem>();
+            foreach (var item in GetAllCategories())
+            {
+                possibleCategories.Add(new SelectListItem { Value = item.Name, Text = item.Name });
+            }
+            return possibleCategories;
         }
 
         public List<Category> GetMainCategories() => dbContext.Categories.Where(p => p.ParentCategory == null).ToList();

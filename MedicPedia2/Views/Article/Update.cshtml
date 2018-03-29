@@ -1,28 +1,33 @@
-﻿@model  MedicPedia2.Models.Article
+﻿@model  MedicPedia2.Models.ViewModels.ArticleViewModel
 
 <h2>Update</h2>
 
 @using (Html.BeginForm())
 {
-    @Html.HiddenFor(m => m.Id)
+    @Html.HiddenFor(m => m.Article.Id)
     <div>
-        @Html.LabelFor(m => m.Title)
-        @Html.TextBoxFor(m => m.Title)
+        @Html.LabelFor(m => m.Article.Title)
+        @Html.TextBoxFor(m => m.Article.Title)
     </div>
 
     <div>
-        @Html.LabelFor(m => m.Content)
-        @Html.TextAreaFor(m => m.Content, 10, 500, new { HtmlAttributes = new { @id = "textareaarticle" } }))
+        @Html.LabelFor(m => m.Article.Categories)
+        @Html.ListBoxFor(m => m.Article.Categories, Model.AllPossibleCategories)
     </div>
 
     <div>
-        @Html.LabelFor(m => m.Tags)
-        @Html.TextBoxFor(m => m.Tags)
+        @Html.LabelFor(m => m.Article.Content)
+        @Html.TextAreaFor(m => m.Article.Content, 10, 500, new { HtmlAttributes = new { @id = "textareaarticle" } }))
     </div>
 
     <div>
-        @Html.LabelFor(m => m.Author)
-        @Html.TextBoxFor(m => m.Author)
+        @Html.LabelFor(m => m.Article.Tags)
+        @*@Html.ListBoxFor(m => m.Article.Tags)*@
+    </div>
+
+    <div>
+        @Html.LabelFor(m => m.Article.Author)
+        @Html.TextBoxFor(m => m.Article.Author)
     </div>
 
     <div>

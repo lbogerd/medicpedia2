@@ -15,7 +15,6 @@ namespace MedicPedia2.Controllers
         SqlAuthorRepository authorRepository = new SqlAuthorRepository();
         SqlCategoryRepository categoryRepository = new SqlCategoryRepository();
 
-        // GET: Article
         public ActionResult Index()
         {
             var articleList = articleRepository.GetArticleList();
@@ -24,28 +23,15 @@ namespace MedicPedia2.Controllers
 
         public ActionResult Article(Guid id)
         {
-            var articleVm = new ArticleViewModel();
-            articleVm.CreateSelectedList(authorRepository);
-            var articleVm = new ArticleViewModel()
-            {
-                Article = articleRepository.Get(id),
-                AllPossibleCategories = categoryRepository
-                    .GetAllCategoriesAsSelectListItems()
-            };
-
+            var articleVm = new ArticleViewModel(articleRepository, id);
             return View(articleVm);
         }
 
         [HttpGet]
         public ActionResult Create()
         {
-            var vm = new ArticleViewModel
-            {
-                Article = new Article(),
-                AllPossibleCategories = categoryRepository
-                    .GetAllCategoriesAsSelectListItems()
-            };
-            return View(vm);
+            var articleVm = new ArticleViewModel(authorRepository, categoryRepository);
+            return View(articleVm);
         }
 
         [HttpPost]
@@ -58,15 +44,14 @@ namespace MedicPedia2.Controllers
         [HttpGet]
         public ActionResult Update(Guid articleId)
         {
-            var articleToUpdate = articleRepository.Get(articleId);
-            return View(articleToUpdate);
+            var articleVm = new ArticleViewModel( articleRepository, authorRepository,categoryRepository, articleId);
+            return View(articleVm);
         }
 
         [HttpPost]
         public ActionResult Update(ArticleViewModel article)
         {
             articleRepository.Update(article.Article);
-
             return RedirectToAction("Article");
         }
 

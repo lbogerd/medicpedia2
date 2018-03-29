@@ -11,16 +11,23 @@ namespace MedicPedia2.Models.ViewModels
 {
     public class ArticleViewModel
     {
-
-        
         public Article Article { get; set; }
         public List<SelectListItem> AllPossibleCategories { get; set; }
         public List<SelectListItem> AllPossibleAuthors { get; set; }
 
         public ArticleViewModel()
         {
+        }
 
+        public ArticleViewModel(SqlArticleRepository articleRepository, Guid id)
+        {
+            this.Article = articleRepository.Get(id);
+        }
 
+        public ArticleViewModel( SqlAuthorRepository authorRepository, SqlCategoryRepository categoryRepository)
+        {
+            CreateCategoryList(categoryRepository);
+            CreateAuthorList(authorRepository);
         }
 
         public ArticleViewModel(SqlArticleRepository articleRepository, SqlAuthorRepository authorRepository, SqlCategoryRepository categoryRepository, Guid id)
@@ -28,8 +35,6 @@ namespace MedicPedia2.Models.ViewModels
             this.Article = articleRepository.Get(id);
             CreateCategoryList(categoryRepository);
             CreateAuthorList(authorRepository);
-        
-            
         }
 
         private void CreateAuthorList(SqlAuthorRepository authorRepository)

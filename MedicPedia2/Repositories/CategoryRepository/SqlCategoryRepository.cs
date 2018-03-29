@@ -35,16 +35,6 @@ namespace MedicPedia2.Repositories.CategoryRepository
             //return result;
         }
 
-        public List<SelectListItem> GetAllCategoriesAsSelectListItems()
-        {
-            var possibleCategories = new List<SelectListItem>();
-            foreach (var item in GetAllCategories())
-            {
-                possibleCategories.Add(new SelectListItem { Value = item.Name, Text = item.Name });
-            }
-            return possibleCategories;
-        }
-
         public List<Category> GetMainCategories() => dbContext.Categories.Where(p => p.ParentCategory == null).ToList();
 
         public void Remove(Guid id)

@@ -26,12 +26,13 @@ namespace MedicPedia2.Models.ViewModels
         public ArticleViewModel(SqlArticleRepository articleRepository, SqlAuthorRepository authorRepository, SqlCategoryRepository categoryRepository, Guid id)
         {
             this.Article = articleRepository.Get(id);
-            this.AllPossibleCategories = categoryRepository.GetAllCategories();
-            this.AllPossibleAuthors = new List<SelectListItem>();
+            CreateCategoryList(categoryRepository);
+            CreateAuthorList(authorRepository);
+        
             
         }
 
-        public void CreateSelectedList(SqlAuthorRepository authorRepository)
+        private void CreateAuthorList(SqlAuthorRepository authorRepository)
         {
             this.AllPossibleAuthors = new List<SelectListItem>();
 
@@ -40,6 +41,18 @@ namespace MedicPedia2.Models.ViewModels
                 AllPossibleAuthors.Add(new SelectListItem { Text = author.FirstName + " " + author.LastName, Value = author.FirstName});
             }
         }
+
+        private void CreateCategoryList(SqlCategoryRepository categoryRepository)
+        {
+            this.AllPossibleCategories = new List<SelectListItem>();
+
+            foreach (var category in categoryRepository.GetAllCategories())
+            {
+                AllPossibleCategories.Add(new SelectListItem { Text = category.Name, Value = category.Id.ToString()});
+            }
+        }
+
+
     }
 
    
